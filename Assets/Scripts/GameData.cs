@@ -74,10 +74,8 @@ public class GameData : NetworkBehaviour {
     }
 
     private void HostOnClientDisconnected(ulong clientId) {
-        int index = FindPlayerIndex(clientId);
-        if (index != -1) {
-            allPlayers.RemoveAt(index);
-        }
+        Debug.Log($"[GameData] Client Disconnected {clientId}");
+        RemovePlayerFromList(clientId);
     }
 
 

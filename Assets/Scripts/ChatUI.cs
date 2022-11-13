@@ -120,4 +120,10 @@ public class ChatUI : NetworkBehaviour {
         string newMessage = $"\n[{who}]:  {message}";
         txtChatLog.text += newMessage;
     }
+
+    public void SendSystemMessage(string msg) {
+        if (IsHost) {
+            SendChatMessageClientRpc(msg, SYSTEM_ID);
+        }
+    }
 }
